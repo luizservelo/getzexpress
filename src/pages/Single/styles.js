@@ -2,13 +2,18 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     postContainer: {
-        color: '#191919',
-        padding: 15
+        backgroundColor: '#191919',
+        padding: 0
     },
     title: {
         textAlign: 'center',
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        marginBottom: 15,
+        color: '#ffffff'
+    },
+    cover:{
+        padding: 10,
     }
 
 });
