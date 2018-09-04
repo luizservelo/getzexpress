@@ -7,10 +7,12 @@ const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center',
-        fontSize: 18,
+        fontSize: 22,
         fontWeight: 'bold',
         marginBottom: 15,
-        color: '#ffffff'
+        color: '#ffffff',
+        padding: 15,
+        backgroundColor: '#E75112'
     },
     cover:{
         padding: 10,

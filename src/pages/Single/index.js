@@ -36,7 +36,7 @@ export default class Single extends Component {
       p:{
         fontSize: 14,
         margin: 0,
-        padding: 15,
+        padding: 20,
         color: '#ffffff'
       },
       b:{
