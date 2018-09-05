@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image, TouchableOpacity, StatusBar, Dimensions } from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity, StatusBar, Dimensions, TextInput } from 'react-native';
 import HTML from 'react-native-render-html';
 
 const { width, height } = Dimensions.get('window');
@@ -13,13 +13,56 @@ export default class Single extends Component {
       width: width,
       height: height,
       marginBottom: 15,
-    }
+    },
+    comments: [
+      {
+        id: 1,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 2,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 3,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 4,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 5,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 6,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+
+      {
+        id: 7,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+      {
+        id: 8,
+        author: 'Luiz Servelo',
+        comment: 'Aqui tem um bando de louco, louco por ti cigarros...'
+      },
+    ]
   }
 
   componentDidMount(){
     console.log(this.state.post, width, height);
 
-    var coverWidth = width - 30;
+    var coverWidth = width;
     var coverHeight = this.state.post.acf.banner.sizes['large-height'] / this.state.post.acf.banner.sizes['large-width'] * coverWidth;
 
     this.setState({
@@ -34,7 +77,7 @@ export default class Single extends Component {
 
     const excerptStyles = {
       p:{
-        fontSize: 14,
+        fontSize: 16,
         margin: 0,
         padding: 20,
         color: '#ffffff'
@@ -58,6 +101,34 @@ export default class Single extends Component {
           />
         </View>
         <HTML tagsStyles={excerptStyles} html={this.state.post.content.rendered} imagesMaxWidth={this.state.coverWidth} />
+        <View style={styles.commentBar}>
+          <Text style={styles.commentBarText}>Fala malandro! Deixe seu comentário!</Text>
+        </View>
+        <View style={styles.commentContainer}>
+          <TextInput 
+            style={styles.commentInput}
+            multiline={true}
+            placeholder="Opa! É só comentar aqui..."
+          />
+          <TouchableOpacity style={styles.commentButton}>
+            <Text style={styles.commentButtonText}>Enviar</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.userCommentArea}>
+            {
+              this.state.comments.map(comment => (
+                <View style={styles.userCommentContainer}>
+                  <View style={styles.userCircleName}>
+                    <Text style={styles.userCircleNameText}>{comment.author[0]}</Text>
+                  </View>
+                  <View style={styles.commentContent}>
+                    <Text style={styles.commentContentAuthor}>{comment.author}</Text>
+                    <Text style={styles.commentContentText}>{comment.comment}</Text>
+                  </View>
+                </View>
+              ))
+            }
+          </View>
       </ScrollView>
     );
   }
